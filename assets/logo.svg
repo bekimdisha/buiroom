@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-labelledby="t">
+  <title id="t">BuiRoom</title>
+  <!-- Plis: white felt dome -->
+  <path d="M34 64 C34 12 86 12 86 64 Z" fill="#fff" stroke="#1a1a1a" stroke-width="4" stroke-linejoin="round"/>
+  <!-- Mustache: one half, mirrored -->
+  <g fill="#1a1a1a">
+    <path id="m" d="M60 77 C67 69 81 69 89 78 C94 83 101 82 105 73 C106 90 91 99 76 95 C68 93 63 89 60 85 Z"/>
+    <use href="#m" transform="translate(120 0) scale(-1 1)"/>
+  </g>
+</svg>

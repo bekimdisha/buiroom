@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="sq">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Posto njoftim | BuiRoom</title>
+  <meta name="description" content="Jep me qira dhomën ose apartamentin tënd në 3 hapa. Falas.">
+  <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container bar">
+      <a class="brand" href="index.html"><img src="assets/logo.svg" alt="" width="40" height="40"><span>BuiRoom</span></a>
+      <nav>
+        <button class="btn btn-ghost" id="lang-toggle" type="button" data-i18n="nav.lang">EN</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container narrow">
+    <div id="wizard">
+      <h1 data-i18n="p.title">Posto njoftimin tënd</h1>
+      <ol class="stepper" id="stepper">
+        <li>1. <span data-i18n="p.step1">Banesa</span></li>
+        <li>2. <span data-i18n="p.step2">Fotot</span></li>
+        <li>3. <span data-i18n="p.step3">Kontakti</span></li>
+      </ol>
+
+      <form id="post-form" novalidate>
+        <fieldset class="step" data-step="0">
+          <div class="form-grid">
+            <div class="full">
+              <label data-i18n="f.type">Lloji</label>
+              <div class="seg">
+                <label><input type="radio" name="type" value="room" checked><span data-i18n="type.room">Dhomë</span></label>
+                <label><input type="radio" name="type" value="apartment"><span data-i18n="type.apartment">Apartament</span></label>
+              </div>
+            </div>
+            <div class="full">
+              <label for="p-title" data-i18n="p.ftitle">Titulli</label>
+              <input id="p-title" name="title" type="text" required minlength="8" maxlength="70">
+            </div>
+            <div>
+              <label for="p-city" data-i18n="f.city">Qyteti</label>
+              <select id="p-city" name="city" required></select>
+            </div>
+            <div>
+              <label for="p-neighbourhood" data-i18n="p.neighbourhood">Lagjja</label>
+              <input id="p-neighbourhood" name="neighbourhood" type="text" maxlength="40">
+            </div>
+            <div>
+              <label for="p-price" data-i18n="p.price">Qiraja mujore (€)</label>
+              <input id="p-price" name="price" type="number" required min="20" max="10000" step="1" inputmode="numeric">
+            </div>
+            <div>
+              <label for="p-area" data-i18n="p.area">Sipërfaqja (m²)</label>
+              <input id="p-area" name="area" type="number" required min="5" max="1000" step="1" inputmode="numeric">
+            </div>
+            <div>
+              <label for="p-bedrooms" data-i18n="fact.bedrooms">Dhoma gjumi</label>
+              <select id="p-bedrooms" name="bedrooms">
+                <option value="0" data-i18n="fact.studio">Garsoniere</option>
+                <option value="1" selected>1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+              </select>
+            </div>
+            <div>
+              <label for="p-floor" data-i18n="fact.floor">Kati</label>
+              <input id="p-floor" name="floor" type="number" required min="0" max="60" step="1" value="1" inputmode="numeric">
+            </div>
+            <div>
+              <label for="p-available" data-i18n="fact.available">I lirë nga</label>
+              <input id="p-available" name="availableFrom" type="date" required>
+            </div>
+            <div style="align-self: end">
+              <label class="check"><input type="checkbox" name="furnished" value="1" checked><span data-i18n="f.furnished">I mobiluar</span></label>
+            </div>
+            <div class="full">
+              <label data-i18n="d.amenities">Komoditetet</label>
+              <div class="checks">
+                <label class="check"><input type="checkbox" name="amenities" value="internet"><span data-i18n="am.internet"></span></label>
+                <label class="check"><input type="checkbox" name="amenities" value="heating"><span data-i18n="am.heating"></span></label>
+                <label class="check"><input type="checkbox" name="amenities" value="ac"><span data-i18n="am.ac"></span></label>
+                <label class="check"><input type="checkbox" name="amenities" value="washer"><span data-i18n="am.washer"></span></label>
+                <label class="check"><input type="checkbox" name="amenities" value="balcony"><span data-i18n="am.balcony"></span></label>
+                <label class="check"><input type="checkbox" name="amenities" value="elevator"><span data-i18n="am.elevator"></span></label>
+                <label class="check"><input type="checkbox" name="amenities" value="parking"><span data-i18n="am.parking"></span></label>
+              </div>
+            </div>
+            <div class="full">
+              <label for="p-description" data-i18n="d.description">Përshkrimi</label>
+              <textarea id="p-description" name="description" rows="4" required minlength="20" maxlength="1000"></textarea>
+            </div>
+          </div>
+          <div class="actions">
+            <button class="btn btn-primary" type="button" data-next data-i18n="p.next">Vazhdo</button>
+          </div>
+        </fieldset>
+
+        <fieldset class="step" data-step="1" hidden>
+          <p data-i18n="p.photosLead"></p>
+          <p class="hint" data-i18n="p.photosOptional"></p>
+          <div class="photo-grid" id="photos"></div>
+          <label class="btn" id="add-photos" for="photo-input" data-i18n="p.addPhotos">Shto foto</label>
+          <input id="photo-input" type="file" accept="image/*" multiple hidden>
+          <div class="actions">
+            <button class="btn" type="button" data-back data-i18n="p.back">Kthehu</button>
+            <button class="btn btn-primary" type="button" data-next data-i18n="p.next">Vazhdo</button>
+          </div>
+        </fieldset>
+
+        <fieldset class="step" data-step="2" hidden>
+          <label for="p-phone" data-i18n="p.phone">Numri i telefonit</label>
+          <div class="phone-row">
+            <span>+355</span>
+            <input id="p-phone" name="phone" type="tel" required autocomplete="tel-national" inputmode="tel" placeholder="69 123 4567">
+          </div>
+          <p class="hint" data-i18n="p.phoneHint"></p>
+
+          <h2 style="font-size: 1rem; margin-top: 28px" data-i18n="p.preview">Kështu do të duket njoftimi</h2>
+          <div class="preview" id="preview"></div>
+
+          <div class="actions">
+            <button class="btn" type="button" data-back data-i18n="p.back">Kthehu</button>
+            <button class="btn btn-primary" type="submit" data-i18n="p.publish">Publiko</button>
+          </div>
+        </fieldset>
+      </form>
+    </div>
+
+    <div class="success" id="success" hidden>
+      <h1 data-i18n="p.doneTitle">Njoftimi u publikua</h1>
+      <p class="muted" style="margin-top: 8px" data-i18n="p.doneText"></p>
+      <a class="btn btn-primary" id="view-link" href="search.html" data-i18n="p.view">Shiko njoftimin</a>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <span data-i18n="footer.tag"></span>
+      <span data-i18n="footer.demo"></span>
+    </div>
+  </footer>
+
+  <script src="data/listings.js"></script>
+  <script src="js/i18n.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/post.js"></script>
+</body>
+</html>

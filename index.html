@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="sq">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>BuiRoom | Dhoma dhe apartamente me qira në Shqipëri</title>
+  <meta name="description" content="Gjej dhomë ose apartament me qira në Shqipëri në 3 hapa. Pa regjistrim, pa komision.">
+  <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container bar">
+      <a class="brand" href="index.html"><img src="assets/logo.svg" alt="" width="40" height="40"><span>BuiRoom</span></a>
+      <nav>
+        <button class="btn btn-ghost" id="lang-toggle" type="button" data-i18n="nav.lang">EN</button>
+        <a class="btn btn-primary" href="post.html" data-i18n="nav.post">Posto njoftim</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <h1 data-i18n-html="hero.title">Gjej dhomën tënde në <span class="accent">3 hapa</span></h1>
+        <p class="lead" data-i18n="hero.lead">Dhoma dhe apartamente me qira në të gjithë Shqipërinë. Pa regjistrim, pa komision.</p>
+
+        <form class="search-box" action="search.html" method="get">
+          <div>
+            <label for="city" data-i18n="f.city">Qyteti</label>
+            <select id="city" name="city"></select>
+          </div>
+          <div>
+            <label data-i18n="f.type">Lloji</label>
+            <div class="seg">
+              <label><input type="radio" name="type" value="" checked><span data-i18n="f.any">Të gjitha</span></label>
+              <label><input type="radio" name="type" value="room"><span data-i18n="type.room">Dhomë</span></label>
+              <label><input type="radio" name="type" value="apartment"><span data-i18n="type.apartment">Apartament</span></label>
+            </div>
+          </div>
+          <div>
+            <label for="max" data-i18n="f.max">Çmimi maks. (€)</label>
+            <input id="max" name="max" type="number" min="0" step="10" inputmode="numeric">
+          </div>
+          <button class="btn btn-primary" type="submit" data-i18n="f.search">Kërko</button>
+        </form>
+      </div>
+    </section>
+
+    <section style="padding-top: 8px">
+      <div class="container">
+        <h2 class="muted" style="font-size: 0.85rem; text-align: center; margin-bottom: 12px; font-weight: 600" data-i18n="home.cities">Qytetet më të kërkuara</h2>
+        <div class="chips" id="city-chips"></div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="section-head">
+          <h2 data-i18n="home.latest">Njoftimet më të reja</h2>
+          <a href="search.html" data-i18n="home.seeAll">Shiko të gjitha</a>
+        </div>
+        <div class="grid" id="latest"></div>
+      </div>
+    </section>
+
+    <section class="soft">
+      <div class="container">
+        <h2 data-i18n="how.title">Si funksionon</h2>
+        <div class="how" style="margin-top: 24px">
+          <div>
+            <h3 data-i18n="how.seekers">Kërkon banesë?</h3>
+            <ol class="steps">
+              <li><b>1</b><span data-i18n="how.s1"></span></li>
+              <li><b>2</b><span data-i18n="how.s2"></span></li>
+              <li><b>3</b><span data-i18n="how.s3"></span></li>
+            </ol>
+          </div>
+          <div>
+            <h3 data-i18n="how.landlords">Jep me qira?</h3>
+            <ol class="steps">
+              <li><b>1</b><span data-i18n="how.l1"></span></li>
+              <li><b>2</b><span data-i18n="how.l2"></span></li>
+              <li><b>3</b><span data-i18n="how.l3"></span></li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="band">
+          <div>
+            <h2 data-i18n="band.title">Ke një dhomë për të dhënë me qira?</h2>
+            <p data-i18n="band.text">Postoje falas në 2 minuta.</p>
+          </div>
+          <a class="btn btn-primary" href="post.html" data-i18n="nav.post">Posto njoftim</a>
+        </div>
+      </div>
+    </section>
+
+    <section style="padding-top: 0">
+      <div class="container">
+        <ul class="trust">
+          <li data-i18n="trust.1"></li>
+          <li data-i18n="trust.2"></li>
+          <li data-i18n="trust.3"></li>
+          <li data-i18n="trust.4"></li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <span data-i18n="footer.tag"></span>
+      <span data-i18n="footer.demo"></span>
+    </div>
+  </footer>
+
+  <script src="data/listings.js"></script>
+  <script src="js/i18n.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/home.js"></script>
+</body>
+</html>

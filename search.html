@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="sq">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kërko | BuiRoom</title>
+  <meta name="description" content="Kërko dhoma dhe apartamente me qira në Shqipëri sipas qytetit, llojit dhe çmimit.">
+  <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container bar">
+      <a class="brand" href="index.html"><img src="assets/logo.svg" alt="" width="40" height="40"><span>BuiRoom</span></a>
+      <nav>
+        <button class="btn btn-ghost" id="lang-toggle" type="button" data-i18n="nav.lang">EN</button>
+        <a class="btn btn-primary" href="post.html" data-i18n="nav.post">Posto njoftim</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <form class="filters" id="filters">
+      <div class="wide">
+        <label for="f-city" data-i18n="f.city">Qyteti</label>
+        <select id="f-city" name="city"></select>
+      </div>
+      <div class="wide">
+        <label data-i18n="f.type">Lloji</label>
+        <div class="seg">
+          <label><input type="radio" name="type" value="" checked><span data-i18n="f.any">Të gjitha</span></label>
+          <label><input type="radio" name="type" value="room"><span data-i18n="type.room">Dhomë</span></label>
+          <label><input type="radio" name="type" value="apartment"><span data-i18n="type.apartment">Apartament</span></label>
+        </div>
+      </div>
+      <div>
+        <label for="f-min" data-i18n="f.min">Çmimi min. (€)</label>
+        <input id="f-min" name="min" type="number" min="0" step="10" inputmode="numeric">
+      </div>
+      <div>
+        <label for="f-max" data-i18n="f.max">Çmimi maks. (€)</label>
+        <input id="f-max" name="max" type="number" min="0" step="10" inputmode="numeric">
+      </div>
+      <div>
+        <label for="f-sort" data-i18n="f.sort">Rendit sipas</label>
+        <select id="f-sort" name="sort">
+          <option value="" data-i18n="sort.newest">Më të rejat</option>
+          <option value="cheapest" data-i18n="sort.cheapest">Më të lirat</option>
+          <option value="priciest" data-i18n="sort.priciest">Më të shtrenjtat</option>
+        </select>
+      </div>
+      <label class="check"><input type="checkbox" id="f-furnished" name="furnished" value="1"><span data-i18n="f.furnished">I mobiluar</span></label>
+    </form>
+
+    <div class="results-head">
+      <h1 id="count" style="font-size: 1.25rem" aria-live="polite"></h1>
+      <button class="btn btn-ghost" id="clear" type="button" data-i18n="f.clear" hidden>Pastro filtrat</button>
+    </div>
+
+    <div class="grid" id="results" style="padding-bottom: 56px"></div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <span data-i18n="footer.tag"></span>
+      <span data-i18n="footer.demo"></span>
+    </div>
+  </footer>
+
+  <script src="data/listings.js"></script>
+  <script src="js/i18n.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/search.js"></script>
+</body>
+</html>

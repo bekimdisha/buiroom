@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="sq">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Njoftim | BuiRoom</title>
+  <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container bar">
+      <a class="brand" href="index.html"><img src="assets/logo.svg" alt="" width="40" height="40"><span>BuiRoom</span></a>
+      <nav>
+        <button class="btn btn-ghost" id="lang-toggle" type="button" data-i18n="nav.lang">EN</button>
+        <a class="btn btn-primary" href="post.html" data-i18n="nav.post">Posto njoftim</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <a class="back" id="back" href="search.html" data-i18n="d.back">← Kthehu te njoftimet</a>
+    <div id="detail"></div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <span data-i18n="footer.tag"></span>
+      <span data-i18n="footer.demo"></span>
+    </div>
+  </footer>
+
+  <script src="data/listings.js"></script>
+  <script src="js/i18n.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/listing.js"></script>
+</body>
+</html>
